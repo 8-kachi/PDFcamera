@@ -11,6 +11,10 @@
 		7BDBEF3128B988F2009519D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBEF3028B988F2009519D7 /* ContentView.swift */; };
 		7BDBEF3328B988F9009519D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBEF3228B988F9009519D7 /* Assets.xcassets */; };
 		7BDBEF3628B988F9009519D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBEF3528B988F9009519D7 /* Preview Assets.xcassets */; };
+		7BDBEF4028B989D4009519D7 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBEF3F28B989D4009519D7 /* ActivityModel.swift */; };
+		7BDBEF4228B989F3009519D7 /* ScannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBEF4128B989F3009519D7 /* ScannerModel.swift */; };
+		7BDBEF4428B98A3E009519D7 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBEF4328B98A3E009519D7 /* UIImage-Extension.swift */; };
+		7BDBEF4628B98A6F009519D7 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBEF4528B98A6F009519D7 /* CreateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		7BDBEF3028B988F2009519D7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7BDBEF3228B988F9009519D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BDBEF3528B988F9009519D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7BDBEF3F28B989D4009519D7 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		7BDBEF4128B989F3009519D7 /* ScannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerModel.swift; sourceTree = "<group>"; };
+		7BDBEF4328B98A3E009519D7 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
+		7BDBEF4528B98A6F009519D7 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,11 @@
 			isa = PBXGroup;
 			children = (
 				7BDBEF2E28B988F2009519D7 /* PDFcameraApp.swift */,
+				7BDBEF3C28B9893A009519D7 /* View */,
 				7BDBEF3028B988F2009519D7 /* ContentView.swift */,
+				7BDBEF4528B98A6F009519D7 /* CreateView.swift */,
+				7BDBEF3D28B9896A009519D7 /* Extension */,
+				7BDBEF3E28B989A3009519D7 /* Model */,
 				7BDBEF3228B988F9009519D7 /* Assets.xcassets */,
 				7BDBEF3428B988F9009519D7 /* Preview Content */,
 			);
@@ -65,6 +77,30 @@
 				7BDBEF3528B988F9009519D7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7BDBEF3C28B9893A009519D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BDBEF3D28B9896A009519D7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7BDBEF4328B98A3E009519D7 /* UIImage-Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		7BDBEF3E28B989A3009519D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BDBEF3F28B989D4009519D7 /* ActivityModel.swift */,
+				7BDBEF4128B989F3009519D7 /* ScannerModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BDBEF4228B989F3009519D7 /* ScannerModel.swift in Sources */,
 				7BDBEF3128B988F2009519D7 /* ContentView.swift in Sources */,
 				7BDBEF2F28B988F2009519D7 /* PDFcameraApp.swift in Sources */,
+				7BDBEF4028B989D4009519D7 /* ActivityModel.swift in Sources */,
+				7BDBEF4628B98A6F009519D7 /* CreateView.swift in Sources */,
+				7BDBEF4428B98A3E009519D7 /* UIImage-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
