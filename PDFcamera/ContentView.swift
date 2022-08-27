@@ -73,7 +73,9 @@ struct ContentView: View {
         self.showActivityView.toggle()
         self.uiImage = window?.getImage(rect: self.rect)
         
-        createPdfFromView(hosting: UIImageView(image: self.scannerModel.imageArray.first), saveToDocumentsWithFileName: "\(name)\(select_date)")
+        let hostings = uiImageToUiImageView(uiImageArray: self.scannerModel.imageArray)
+        
+        createPdfFromView(hosting: hostings, saveToDocumentsWithFileName: "\(name)\(select_date)")
     }
     
     private func tappedTrashButton() {
@@ -99,6 +101,18 @@ struct ContentView: View {
             let documentsFileName = documentDirectories + "/" + fileName + ".pdf"
             pdfData.write(toFile: documentsFileName, atomically: true)
         }
+    }
+    
+    private func uiImageToUiImageView(uiImageArray: [UIImage]) -> [UIImageView] {
+        var uiImageViewArray : [UIImageView]
+        //型を指定して配列を宣言
+        uiImageViewArray = []
+        for uiImage in uiImageArray {
+            uiImageViewArray.append(
+                UIImageView(image: uiImage)
+            )
+        }
+        return uiImageViewArray
     }
 }
 
