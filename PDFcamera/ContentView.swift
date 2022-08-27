@@ -90,8 +90,8 @@ struct ContentView: View {
     private func createPdfFromView(hosting: UIImageView, saveToDocumentsWithFileName fileName: String) {
         let pdfData = NSMutableData()
         UIGraphicsBeginPDFContextToData(pdfData, hosting.bounds, nil)
-        UIGraphicsBeginPDFPage()
         guard let pdfContext = UIGraphicsGetCurrentContext() else { return }
+        UIGraphicsBeginPDFPage()
         hosting.layer.render(in: pdfContext)
         UIGraphicsEndPDFContext()
         if let documentDirectories = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
