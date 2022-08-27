@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import PDFKit
 
 struct ContentView: View {
     @ObservedObject private var scannerModel = ScannerModel()
@@ -92,10 +92,16 @@ struct ContentView: View {
     
     private func createPdfFromView(hostings: [UIImageView], saveToDocumentsWithFileName fileName: String) {
         let pdfData = NSMutableData()
-        UIGraphicsBeginPDFContextToData(pdfData, hostings[0].bounds, nil)
-        UIGraphicsBeginPDFPage()
+        UIGraphicsBeginPDFContextToData(
+            pdfData,
+            CGRect(x: 0, y: 0, width: 595.2, height: 841.8),
+            nil
+        )
         guard let pdfContext = UIGraphicsGetCurrentContext() else { return }
-        hostings[0].layer.render(in: pdfContext)
+        for hosting in hostings {
+            UIGraphicsBeginPDFPage()
+            hosting.layer.render(in: pdfContext)
+        }
         UIGraphicsEndPDFContext()
         
         if let documentDirectories = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
