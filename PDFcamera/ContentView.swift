@@ -75,7 +75,7 @@ struct ContentView: View {
         
         let hostings = uiImageToUiImageView(uiImageArray: self.scannerModel.imageArray)
         
-        createPdfFromView(hosting: hostings, saveToDocumentsWithFileName: "\(name)\(select_date)")
+        createPdfFromView(hostings: hostings, saveToDocumentsWithFileName: "\(name)\(select_date)")
     }
     
     private func tappedTrashButton() {
@@ -90,13 +90,14 @@ struct ContentView: View {
         return filePath
     }
     
-    private func createPdfFromView(hosting: UIImageView, saveToDocumentsWithFileName fileName: String) {
+    private func createPdfFromView(hostings: [UIImageView], saveToDocumentsWithFileName fileName: String) {
         let pdfData = NSMutableData()
-        UIGraphicsBeginPDFContextToData(pdfData, hosting.bounds, nil)
-        guard let pdfContext = UIGraphicsGetCurrentContext() else { return }
+        UIGraphicsBeginPDFContextToData(pdfData, hostings[0].bounds, nil)
         UIGraphicsBeginPDFPage()
-        hosting.layer.render(in: pdfContext)
+        guard let pdfContext = UIGraphicsGetCurrentContext() else { return }
+        hostings[0].layer.render(in: pdfContext)
         UIGraphicsEndPDFContext()
+        
         if let documentDirectories = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
             let documentsFileName = documentDirectories + "/" + fileName + ".pdf"
             pdfData.write(toFile: documentsFileName, atomically: true)
