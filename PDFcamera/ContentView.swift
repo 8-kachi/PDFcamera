@@ -72,7 +72,8 @@ struct ContentView: View {
         let window = windowScenes?.windows.first
         self.showActivityView.toggle()
         self.uiImage = window?.getImage(rect: self.rect)
-        createPdfFromView(hosting: UIImageView(image: uiImage), saveToDocumentsWithFileName: "\(name)\(select_date)")
+        
+        createPdfFromView(hosting: UIImageView(image: self.scannerModel.imageArray.first), saveToDocumentsWithFileName: "\(name)\(select_date)")
     }
     
     private func tappedTrashButton() {
