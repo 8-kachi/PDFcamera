@@ -94,7 +94,14 @@ struct ContentView: View {
         let pdfData = NSMutableData()
         UIGraphicsBeginPDFContextToData(
             pdfData,
-            CGRect(x: 0, y: 0, width: 595.2, height: 841.8),
+            CGRect(
+                x: 0,
+                y: 0,
+//                width: 595.2,
+                width: Int(getMaxWidthInUimageViewArray(uiImageViewArray: hostings)),
+//                height: 841.8
+                height: Int(getMaxHeightInUimageViewArray(uiImageViewArray: hostings))
+            ),
             nil
         )
         guard let pdfContext = UIGraphicsGetCurrentContext() else { return }
@@ -120,6 +127,26 @@ struct ContentView: View {
             )
         }
         return uiImageViewArray
+    }
+    
+    private func getMaxWidthInUimageViewArray(uiImageViewArray: [UIImageView]) -> Float {
+        var result = 0.0
+        for uiImageView in uiImageViewArray {
+            if (result < uiImageView.frame.width) {
+                result = uiImageView.frame.width
+            }
+        }
+        return Float(result)
+    }
+    
+    private func getMaxHeightInUimageViewArray(uiImageViewArray: [UIImageView]) -> Float {
+        var result = 0.0
+        for uiImageView in uiImageViewArray {
+            if (result < uiImageView.frame.height) {
+                result = uiImageView.frame.height
+            }
+        }
+        return Float(result)
     }
 }
 
